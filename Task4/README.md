@@ -24,10 +24,8 @@
 ```
 Task4/
 ├── manifests/
-│   ├── create-roles.yaml            # ClusterRole — используется скриптами
-│   ├── cluster-role-binding.yaml    # ClusterRoleBinding — используется скриптами
-│   ├── roles.yaml                   # Role (namespace-scoped, справочно)
-│   └── role-binding.yaml            # RoleBinding (namespace-scoped, справочно)
+│   ├── create-roles.yaml            # ClusterRole
+│   └── cluster-role-binding.yaml    # ClusterRoleBinding
 ├── roles_table.md                   # Таблица ролей с обоснованием
 ├── create-users.sh / .ps1           # Скрипт 1 — создание пользователей
 ├── create-roles.sh / .ps1           # Скрипт 2 — создание ролей
