@@ -1,0 +1,84 @@
+<mxfile host="65bd71144e">
+    <diagram id="c4_context" name="C4 Context — Smart Home">
+        <mxGraphModel dx="1744" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="person_tenant" value="&lt;b&gt;Собственник&lt;/b&gt;&#10;[Person]&#10;&#10;Владелец квартиры в ЖК PropDevelopment. Использует мобильное приложение для оплаты ЖКУ, управления умным домофоном и шлагбаумом." style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#08427B;fontColor=#ffffff;strokeColor=#073B6F;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="400" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="person_visitor" value="&lt;b&gt;Посетитель / Гость&lt;/b&gt;&#10;[Person]&#10;&#10;Лицо, которое звонит в домофон или въезжает на территорию ЖК. Идентифицируется по лицу или номеру автомобиля." style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#08427B;fontColor=#ffffff;strokeColor=#073B6F;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="690" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="boundary_propdev" value="PropDevelopment" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.c4.system_boundary;whiteSpace=wrap;html=1;strokeColor=#444444;fillColor=none;verticalAlign=top;fontStyle=1;fontSize=13;dashed=1;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="280" width="520" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="sys_propdev" value="&lt;b&gt;PropDevelopment Platform&lt;/b&gt;&#10;[Software System]&#10;&#10;Центральная платформа: мобильное приложение собственников, бэкенд-сервисы ЖКУ, интеграционный слой для сервисов Умного дома." style="shape=mxgraph.c4.system;whiteSpace=wrap;html=1;fillColor=#1168BD;fontColor=#ffffff;strokeColor=#0E5AA2;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="400" width="220" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="sys_smarthome" value="&lt;b&gt;Платформа партнёра «Умный дом»&lt;/b&gt;&#10;[External Software System]&#10;&#10;Обеспечивает работу интеллектуального домофона (распознавание лица/биометрия) и интеллектуального шлагбаума (распознавание гос. номеров автомобилей)." style="shape=mxgraph.c4.system;whiteSpace=wrap;html=1;fillColor=#6C6C6C;fontColor=#ffffff;strokeColor=#5A5A5A;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="340" width="220" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="sys_iot" value="&lt;b&gt;IoT-устройства&lt;/b&gt;&#10;[External Software System]&#10;&#10;Физические устройства партнёра: умные домофоны с камерами, автоматические шлагбаумы с камерами видеонаблюдения." style="shape=mxgraph.c4.system;whiteSpace=wrap;html=1;fillColor=#6C6C6C;fontColor=#ffffff;strokeColor=#5A5A5A;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="690" width="220" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="sys_uk" value="&lt;b&gt;Системы управляющих компаний (УК)&lt;/b&gt;&#10;[External Software System]&#10;&#10;Сторонние системы УК: биллинг ЖКУ, информация о плановых работах, данные по задолженностям." style="shape=mxgraph.c4.system;whiteSpace=wrap;html=1;fillColor=#6C6C6C;fontColor=#ffffff;strokeColor=#5A5A5A;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="160" width="220" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="sys_gov" value="&lt;b&gt;Государственные системы&lt;/b&gt;&#10;[External Software System]&#10;&#10;Росреестр, ФГИС ЕГРН, ЕСИА, банковские системы. Используются для онлайн-сделок купли-продажи недвижимости." style="shape=mxgraph.c4.system;whiteSpace=wrap;html=1;fillColor=#6C6C6C;fontColor=#ffffff;strokeColor=#5A5A5A;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="815" width="220" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_tenant_propdev" value="Управляет умным домом,&#10;оплачивает ЖКУ&#10;[HTTPS, Mobile App]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;" parent="1" source="person_tenant" target="sys_propdev" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_visitor_iot" value="Звонит в домофон,&#10;въезжает на территорию&#10;[физическое взаимодействие]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;" parent="1" source="person_visitor" target="sys_iot" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_propdev_smarthome" value="Команды управления устройствами.&#10;Синхронизация прав доступа.&#10;[REST/HTTPS, OAuth 2.0, TLS 1.3]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;" parent="1" source="sys_propdev" target="sys_smarthome" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_smarthome_propdev" value="События: звонок домофона,&#10;проезд через шлагбаум, тревога.&#10;[Webhooks, HMAC-SHA256, TLS 1.3]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=0;exitY=0.65;exitDx=0;exitDy=0;entryX=1;entryY=0.35;entryDx=0;entryDy=0;fontSize=10;dashed=1;" parent="1" source="sys_smarthome" target="sys_propdev" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1020" y="458"/>
+                            <mxPoint x="960" y="458"/>
+                            <mxPoint x="960" y="540"/>
+                            <mxPoint x="730" y="540"/>
+                            <mxPoint x="730" y="456"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_smarthome_iot" value="Управляет устройствами,&#10;получает видеопоток&#10;[проприетарный протокол]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;" parent="1" source="sys_smarthome" target="sys_iot" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_propdev_uk" value="Получение данных ЖКУ,&#10;квитанций, задолженностей&#10;[REST API, HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;" parent="1" source="sys_propdev" target="sys_uk" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_propdev_gov" value="Онлайн-сделки: проверка документов,&#10;регистрация прав собственности&#10;[СМЭВ, REST, HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;" parent="1" source="sys_propdev" target="sys_gov" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_title" value="Легенда" style="text;html=1;fontStyle=1;fontSize=12;fillColor=none;strokeColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="880" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_person" value="" style="shape=mxgraph.c4.person2;fillColor=#08427B;fontColor=#ffffff;strokeColor=#073B6F;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="910" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_person_lbl" value="Person (Актор)" style="text;html=1;fontSize=10;fillColor=none;strokeColor=none;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="920" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_sys" value="" style="shape=mxgraph.c4.system;fillColor=#1168BD;fontColor=#ffffff;strokeColor=#0E5AA2;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="960" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_sys_lbl" value="Internal System" style="text;html=1;fontSize=10;fillColor=none;strokeColor=none;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="968" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_ext" value="" style="shape=mxgraph.c4.system;fillColor=#6C6C6C;fontColor=#ffffff;strokeColor=#5A5A5A;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="1000" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_ext_lbl" value="External System" style="text;html=1;fontSize=10;fillColor=none;strokeColor=none;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="1008" width="140" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
