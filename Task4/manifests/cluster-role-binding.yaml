@@ -1,0 +1,51 @@
+---
+# Бизнес-аналитики, разработчики, менеджеры — только просмотр ресурсов кластера
+# Task1: данные в configmaps/deployments — "внутренняя" категория, риск чтения незначителен
+# Task2: чеклист — ограничить изменение ресурсов до минимально необходимого круга
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: viewer-binding
+subjects:
+- kind: ServiceAccount
+  name: viewer-user
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: viewer-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# Инженеры по эксплуатации, Senior Developers — настройка кластера
+# Task3: развёртывание новых сервисов (Smart Home Adapter, API Gateway, smart-home DB)
+# требует права на управление deployments, services, networkpolicies, PVC
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: configurator-binding
+subjects:
+- kind: ServiceAccount
+  name: editor-user
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: configurator-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# DevOps-инженеры, Специалист по ИБ — привилегированный доступ
+# Task1: API-ключи партнёра «Умный дом» в secrets — "секретная" категория, критический риск утечки
+# Task2: чеклист — доступ к секретам и управление RBAC только у InfoSec/DevOps
+# Task3: интеграция с партнёром использует OAuth2 client_secret — хранится в K8s secret
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: secrets-admin-binding
+subjects:
+- kind: ServiceAccount
+  name: sec-admin-user
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: secrets-admin-role
+  apiGroup: rbac.authorization.k8s.io
